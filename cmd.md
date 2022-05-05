@@ -22,3 +22,9 @@ docker exec -it mymysql /bin/bash
 
 ## 顯示設定
 show VARIABLES like 'character%';
+
+
+docker run -d -p 3306:3306 --privileged=true -v C:\kawa\docker\mysql\log:/var/log/mysql -v C:\kawa\docker\mysql\data:/var/lib/mysql --name=mymysql mymysql
+
+## 官網寫的指令
+docker run --name mymysql -e MYSQL_ROOT_PASSWORD=root -d mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

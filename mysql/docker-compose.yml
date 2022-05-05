@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mysql:
+    image: mymysql
+    container_name: mymysql
+    environment:
+      # - MYSQL_DATABASE=${MYSQL_DATABASE}
+      # - MYSQL_USER=${MYSQL_USER}
+      # - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=root
+      # - TZ=${WORKSPACE_TIMEZONE}
+    volumes:
+      - C:\kawa\docker\mysql\data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    # networks:
+    #   - backend
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - mysql
+      - redis
