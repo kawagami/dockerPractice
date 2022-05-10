@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   mysql:
     image: mymysql
     container_name: mymysql
@@ -11,19 +12,48 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       # - TZ=${WORKSPACE_TIMEZONE}
     volumes:
-      - C:\kawa\docker\mysql\data:/var/lib/mysql
+      - ${DATABASE_PATH}/mysql:/var/lib/mysql
+    privileged: true
     ports:
       - "3306:3306"
-    # networks:
-    #   - backend
-  redis:
-    image: redis
-    ports:
-      - "6379:6379"
-  nginx:
-    image: nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - mysql
-      - redis
+  #   # networks:
+  #   #   - backend
+  # redis:
+  #   image: redis
+  #   ports:
+  #     - "6379:6379"
+  # nginx:
+  #   image: nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: example
+
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  #     ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+  # postgres:
+  #   image: postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_PASSWORD: root
+  #   volumes:
+  #     - ${DATABASE_PATH}/postgres:/var/lib/postgresql/data
+  #   ports:
+  #     - ${POSTGRES_PORT}:5432
+      
