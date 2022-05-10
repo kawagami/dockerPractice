@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  laravel:
+    image: mylaravel
+    container_name: mylaravel
+    environment:
+      - PORT=80
+      # - TZ=${WORKSPACE_TIMEZONE}
+    # volumes:
+    #   - ${DATABASE_PATH}/mysql:/var/lib/mysql
+    # privileged: true
+    ports:
+      - "80:80"
