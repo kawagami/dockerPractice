@@ -14,7 +14,10 @@ RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar 
 RUN cd /app && \
     /usr/local/bin/composer install --no-dev
 
-RUN chown -R www-data: /app
+# RUN chown -R www-data: /app
+
+RUN chmod -R 777 storage bootstrap/cache
+
 
 # CMD ["sh", "/app/docker/startup.sh"]
 CMD ["sh", "/app/docker/startup.sh"]
