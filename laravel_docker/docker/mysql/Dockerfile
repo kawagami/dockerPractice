@@ -1,4 +1,4 @@
-FROM mysql:8.0.26
+FROM mysql
 
 #####################################
 # Set Timezone

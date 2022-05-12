@@ -3,14 +3,14 @@ version: '3'
 services:
 
   mysql:
-    image: mymysql
+    build: ./
     container_name: mymysql
     environment:
       # - MYSQL_DATABASE=${MYSQL_DATABASE}
       # - MYSQL_USER=${MYSQL_USER}
       # - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=mylaravel
       - MYSQL_ROOT_PASSWORD=root
-      # - TZ=${WORKSPACE_TIMEZONE}
     volumes:
       - ${DATABASE_PATH}/mysql:/var/lib/mysql
     privileged: true
