@@ -2,7 +2,10 @@ version: '3'
 
 services:
 
-  laravel:
+  mylaravel:
+    build:
+      context: ./
+      dockerfile: Dockerfile
     image: mylaravel
     container_name: mylaravel
     environment:
@@ -13,3 +16,13 @@ services:
     # privileged: true
     ports:
       - "80:80"
+    depends_on:
+      - mysql
+    # command: ["./wait-for-it.sh", "-t", "1", "mysql:3306", "--", "php", "-v"]
+  mysql:
+    image: mysql:8.0.26
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=mylaravel
+      - MYSQL_ROOT_PASSWORD=root

@@ -14,7 +14,10 @@ class ButtonController extends Controller
     public function index()
     {
         $data = [
-            'data' => 'controller value'
+            'data' => 'controller value',
+            'data2' => 'controller value2',
+            'data3' => 'controller value3',
+            'data4' => 'controller value4',
         ];
         //
         return view('my', $data);

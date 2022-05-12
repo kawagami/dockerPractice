@@ -10,6 +10,9 @@
 
 <body>
     <h1>{{ $data }}</h1>
+    <h1>{{ $data2 }}</h1>
+    <h1>{{ $data3 }}</h1>
+    <h1>{{ $data4 }}</h1>
 </body>
 
 </html>

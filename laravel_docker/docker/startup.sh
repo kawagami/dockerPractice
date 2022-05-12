@@ -10,4 +10,8 @@ cp .env.example .env
 
 php artisan key:generate
 
+./wait-for-it.sh -t 0 mysql:3306 -- php -v
+
+php artisan migrate
+
 nginx
